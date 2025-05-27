@@ -1,0 +1,29 @@
+.heroSection {
+    color: #fff;
+    text-shadow: 0 4px 4px #00000040;
+    text-transform: capitalize;
+    background: url(https://cdn.builder.io/api/v1/image/assets/TEMP/ab25932264d272bf211f78263c7961375accd5b6)
+      50% / cover no-repeat;
+    height: auto;
+    padding: 343px 156px 153px 36px;
+    font-family:
+      Segoe Script,
+      cursive;
+    font-size: 44px;
+    font-weight: 700;
+  }
+  
+  @media (width<=991px) {
+    .heroSection {
+      font-size: 56px;
+    }
+  }
+  
+  @media (width<=640px) {
+    .heroSection {
+      text-align: center;
+      padding: 200px 20px;
+      font-size: 42px;
+    }
+  }
+  

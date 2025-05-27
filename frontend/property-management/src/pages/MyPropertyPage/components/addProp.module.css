@@ -1,0 +1,82 @@
+.addPropContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color:rgba(255,242,229,0.8); /* Clean white background */
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for a professional look */
+    width: 100%;
+    max-width: 600px;
+    margin: 20px auto;
+  }
+  
+  .addPropContainer h1 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333333; /* Neutral dark color for the heading */
+    margin-bottom: 20px;
+  }
+  
+  .addPropContainer form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .addPropContainer label {
+    font-size: 14px;
+    font-weight: 500;
+    color: #555555; /* Slightly muted text color */
+    margin-bottom: 8px;
+  }
+  
+  .addPropContainer input,
+  .addPropContainer textarea,
+  .addPropContainer select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #cccccc; /* Light border for inputs */
+    border-radius: 8px;
+    font-size: 14px;
+    color: #333333;
+    background-color: #f9f9f9; /* Subtle background for inputs */
+    transition: border-color 0.3s ease;
+  }
+  
+  .addPropContainer input:focus,
+  .addPropContainer textarea:focus,
+  .addPropContainer select:focus {
+    border-color: #007bff; /* Highlight border on focus */
+    outline: none;
+  }
+  
+  .addPropContainer button {
+    padding: 12px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #ffffff;
+    background-color: #007bff; /* Primary button color */
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .addPropContainer button:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+  }
+  
+  .successMessage {
+    font-size: 14px;
+    color: #28a745; /* Green color for success message */
+    margin-top: 10px;
+  }
+  
+  .errorMessage {
+    font-size: 14px;
+    color: #dc3545; /* Red color for error message */
+    margin-top: 10px;
+  }

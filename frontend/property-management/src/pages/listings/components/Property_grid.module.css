@@ -1,0 +1,86 @@
+.propertyGrid{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin: 30px 30px;
+}
+*{
+    font-family: 'Poppins', sans-serif;
+    color: #000000;
+}
+
+.propertyImage{
+    max-height: 200px;
+    object-fit: cover;
+    border-radius: 12px 12px 0 0;
+}
+.propertyImageContainer{
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    border-radius: 12px 12px 0 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.gridItem{
+    width: 300px;
+    height: fit-content;
+    border: 1px solid white;
+    background-color: #fffefb;
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    text-transform: capitalize;
+}
+
+.gridItemAddress{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 8px;
+    font-size: smaller;
+}
+
+.gridItemTitle{
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 5px;
+    
+}
+
+.gridItemCategory{
+    font-size: smaller;
+    margin-bottom: 8px;
+}
+.gridItem img{
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+.bedandsqt{
+    padding: 5px 10px;
+    border-radius: 5px;
+    background-color: #f2f2f29e;
+    font-size: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 5px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+
+    h3{
+        margin-right: 5px;
+    }
+}
+
+.divider{
+    border-bottom: 1px solid #454545;
+    margin: 5px 1px;
+}
+
+.content{
+    padding: 5px 10px ;
+}
+

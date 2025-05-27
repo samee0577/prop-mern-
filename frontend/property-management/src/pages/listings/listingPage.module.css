@@ -1,0 +1,24 @@
+.mainContainer {
+  display: grid;
+  grid-template-columns: 20% 1fr;
+  width: 100%;
+  height: auto;
+  background-color: #E9E3D8;
+}
+
+.contentContainer {
+  display: flex;
+  width: 100%;
+  height: auto;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
+@media (width<=640px) {
+  .mainContainer {
+    grid-template-columns: 1fr;
+  }
+}
+a {
+  text-decoration: none;
+}

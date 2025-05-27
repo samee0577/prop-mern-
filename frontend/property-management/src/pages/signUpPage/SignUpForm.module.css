@@ -1,0 +1,331 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  background-color: #3b3b3b;
+  width: 100%;
+  height: 100vh;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 16px;
+  position: fixed;
+  overflow: hidden;
+}
+
+.backArrowButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  transition: opacity 0.2s ease;
+}
+
+.backArrowButton:hover {
+  opacity: 0.8;
+}
+
+.backArrow {
+  width: 18px;
+  height: 32px;
+}
+
+.contentWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1040px;
+  height: calc(100vh - 20px);
+  margin: auto;
+  gap: 1.9rem;
+  overflow: hidden;
+}
+
+.loginImage {
+  object-fit: contain;
+  width: 470px;
+  height: 450px;
+  filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.2));
+}
+
+.formContainer {
+  background-color: #242424;
+  width: 32rem;
+  padding: 20px 0px;
+  font-size: 15px;
+  border-radius: 8px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+}
+
+.formWrapper {
+  flex-direction: column;
+  gap: 12px;
+  display: flex;
+  width: 100%;
+  max-width: 420px;
+  margin: auto;
+}
+
+.headerSection {
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 16px;
+  display: flex;
+}
+
+.title{
+  color: #fff;
+  font-family: Inria Sans, sans-serif;
+  font-size: 38px;
+  font-weight: 900;  
+  text-transform: capitalize;
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+.message{
+  color: rgba(255, 45, 45, 0.85);
+  font-family: Inria Sans, sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+}
+
+.loginPrompt {
+  color: rgba(255, 255, 255, 0.85);
+  text-transform: lowercase;
+  font-family: Inria Sans, sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  margin: 0;
+}
+
+.formFields {
+  flex-direction: column;
+  gap: 16px;
+  display: flex;
+}
+
+.nameFieldsRow {
+  justify-content: space-between;
+  gap: 16px;
+  display: flex;
+}
+
+.inputField {
+  flex: 1;
+  margin-bottom: 4px;
+}
+
+.passwordField{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+
+.textInput {
+  color: rgba(255, 255, 255, 0.8);
+  text-transform: lowercase;
+  background: transparent;
+  border: 1px solid rgba(194, 194, 194, 0.7);
+  border-radius: 6px;
+  width: 100%;
+  padding: 10px 12px;
+  font-family: Inria Sans, sans-serif;
+  font-size: 15px;
+  font-weight: 300;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.textInput:focus {
+  outline: none;
+  border-color: #78beff;
+  box-shadow: 0 0 0 2px rgba(120, 190, 255, 0.25);
+}
+
+.termsContainer {
+  align-items: center;
+  gap: 8px;
+  display: flex;
+  margin: 4px 0;
+}
+
+.termsLabel {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.checkbox {
+  appearance: none;
+  cursor: pointer;
+  border: 1.5px solid rgba(221, 221, 221, 0.8);
+  border-radius: 3px;
+  width: 16px;
+  height: 16px;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.checkbox:checked {
+  background-color: #78beff;
+  border-color: #78beff;
+}
+
+.termsText {
+  color: rgba(255, 255, 255, 0.9);
+  text-transform: lowercase;
+  font-family: Inria Sans, sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.3;
+}
+
+.actionSection {
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 14px;
+  display: flex;
+}
+
+.createAccountButton {
+  color: #000;
+  cursor: pointer;
+  background-color: #78beff;
+  border: none;
+  border-radius: 6px;
+  width: 100%;
+  padding: 10px;
+  font-family: Inria Sans, sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.createAccountButton:hover {
+  background-color: #8ac5ff;
+}
+
+.createAccountButton:active {
+  transform: translateY(1px);
+}
+
+.dividerContainer {
+  align-items: center;
+  gap: 12px;
+  display: flex;
+  margin: 8px 0;
+}
+
+.dividerLine {
+  background-color: rgba(255, 255, 255, 0.3);
+  flex: 1;
+  height: 1px;
+}
+
+.dividerText {
+  color: rgba(255, 255, 255, 0.7);
+  text-transform: lowercase;
+  font-family: Inria Sans, sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  margin: 0;
+}
+
+.socialButtonsContainer {
+  gap: 12px;
+  display: flex;
+}
+
+.socialButton {
+  color: rgba(255, 255, 255, 0.9);
+  cursor: pointer;
+  background: transparent;
+  border: 1px solid rgba(194, 194, 194, 0.6);
+  border-radius: 6px;
+  flex: 1;
+  padding: 8px 0;
+  font-family: Inria Sans, sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.socialButton:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+  border-color: rgba(194, 194, 194, 0.8);
+}
+
+@media (max-width: 991px) {
+  .contentWrapper {
+    flex-direction: column;
+    justify-content: center;
+    margin: 16px auto 0;
+    gap: 16px;
+    height: auto;
+    overflow-y: auto;
+    max-height: calc(100vh - 32px);
+  }
+  
+
+@media (max-width: 640px) {
+  .container {
+    padding: 12px;
+    overflow-y: auto;
+  }
+  
+  .backArrowButton {
+    top: 10px;
+    left: 10px;
+  }
+  
+  .contentWrapper {
+    margin-top: 20px;
+  }
+  
+  .loginImage {
+    display: none;
+  }
+  
+  .formContainer {
+    padding: 14px 12px;
+  }
+  
+  .mainTitle {
+    font-size: 20px;
+  }
+  
+  .loginPrompt {
+    font-size: 13px;
+  }
+  
+  .headerSection {
+    margin-bottom: 14px;
+  }
+  
+  .nameFieldsRow {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .textInput {
+    padding: 9px 10px;
+    font-size: 13px;
+  }
+  
+  .createAccountButton {
+    padding: 9px;
+    font-size: 13px;
+  }
+  
+  .socialButtonsContainer {
+    flex-direction: column;
+    gap: 8px;
+  }
+}}

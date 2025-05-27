@@ -1,0 +1,21 @@
+.mainContainer {
+    display: grid;
+    grid-template-columns: 20% 1fr;
+    width: 100%;
+    height: auto;
+    background-color: #f0ebe3; /* Matches the background color of other pages */
+  }
+  
+  .contentContainer {
+    display: flex;
+    width: 100%;
+    height: auto;
+    flex-direction: column;
+    overflow-x: hidden;
+  }
+  
+  @media (max-width: 640px) {
+    .mainContainer {
+      grid-template-columns: 1fr;
+    }
+  }
