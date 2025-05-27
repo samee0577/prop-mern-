@@ -27,7 +27,7 @@ function AddProp() {
     try {
       const token = localStorage.getItem("token"); // Get the token from localStorage
       const response = await axios.post(
-        "http://localhost:3000/api/property/new_property",
+        "https://prop-mern-backend.onrender.com/api/property/new_property",
         { ...formData, images: formData.images.split(",") }, // Convert images to an array
         {
           headers: {

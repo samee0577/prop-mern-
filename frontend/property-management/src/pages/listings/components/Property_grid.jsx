@@ -20,7 +20,7 @@ function PropGrid() {
   useEffect(() => {
     const fetchProperties = async () => {
       try {
-        const response = await axios.get("http://localhost:3000/api/property/all_properties", {
+        const response = await axios.get("https://prop-mern-backend.onrender.com/api/property/all_properties", {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
           },
@@ -61,7 +61,7 @@ function PropGrid() {
     }
 
     try {
-      const response = await axios.get(`http://localhost:3000/api/property/all_properties?title=${query}`, {
+      const response = await axios.get(`https://prop-mern-backend.onrender.com/api/property/all_properties?title=${query}`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },

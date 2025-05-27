@@ -19,7 +19,7 @@ function MyAddedProperty() {
     const fetchMyProperties = async () => {
       try {
         const token = localStorage.getItem("token");
-        const response = await axios.get("http://localhost:3000/api/property/all_properties", {
+        const response = await axios.get("https://prop-mern-backend.onrender.com/api/property/all_properties", {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -51,7 +51,7 @@ function MyAddedProperty() {
 
     try {
       const token = localStorage.getItem("token");
-      await axios.delete(`http://localhost:3000/api/property/delete/${propertyId}`, {
+      await axios.delete(`https://prop-mern-backend.onrender.com/api/property/delete/${propertyId}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -86,7 +86,7 @@ function MyAddedProperty() {
     try {
       const token = localStorage.getItem("token");
       await axios.put(
-        `http://localhost:3000/api/property/update/${editProperty._id}`,
+        `https://prop-mern-backend.onrender.com/api/property/update/${editProperty._id}`,
         editForm,
         {
           headers: {

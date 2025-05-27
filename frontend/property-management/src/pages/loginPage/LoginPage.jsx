@@ -70,9 +70,9 @@ function LoginPage() {
     setIsError(false);
 
     try {
-      const response = await axios.post(`http://localhost:3000/api/auth/login`, {
+      const response = await axios.post(`https://prop-mern-backend.onrender.com/api/auth/login`, {
         email,
-        password
+        password,
       });
       console.log("Response from backend:", response.data);
 

@@ -17,7 +17,7 @@ const ProfileContent = () => {
     const fetchUser = async () => {
       try {
         const token = localStorage.getItem("token");
-        const res = await axios.get("http://localhost:3000/api/user/profile", {
+        const res = await axios.get("https://prop-mern-backend.onrender.com/api/user/profile", {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -49,7 +49,7 @@ const ProfileContent = () => {
     try {
       const token = localStorage.getItem("token");
       const response = await axios.put(
-        "http://localhost:3000/api/user/profile",
+        "https://prop-mern-backend.onrender.com/api/user/profile",
         editForm,
         {
           headers: {
