@@ -9,7 +9,10 @@ connectDb()//connecting to db function
 
 const app =express();
 app.use(express.json())
-app.use(cors());
+app.use(cors({
+    origin: ["https://prop-mern-frontend.onrender.com"], // Allow your live frontend URL
+    credentials: true,
+  }));
 const port = process.env.port || 3000;  //server port from env
 
 app.use("/api/auth",authRouter)//when added /api/auth this route handles /login and /signup
