@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./LandingPage.module.css";
+import styles from "./landingPage.module.css";
 import Navbar from "./components/Navbar";
 import Sidebar from "./components/Sidebar";
 import FrontPage from "./components/FrontPage";
