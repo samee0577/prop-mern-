@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import LandingPage from './pages/landingPage/landingPage.jsx'
 import SignUpForm from './pages/signUpPage/SignUpForm.jsx'
@@ -6,6 +5,8 @@ import Listings from './pages/listings/listingPage.jsx'
 import LoginPage from './pages/loginPage/LoginPage.jsx'
 import Profile from './pages/profilePage/profilePage.jsx'
 import MyProperty from './pages/MyPropertyPage/myProperty.jsx'
+import PropertyDetails from './pages/propertyDetails/propertyDetails.jsx'
+import './index.css'
 
 function App() {
 
@@ -19,6 +20,7 @@ function App() {
         <Route path="/signup" element={<SignUpForm/>}/>
         <Route path="/login" element={<LoginPage/>}/>
         <Route path="/listings" element={<Listings/>}/>
+        <Route path="/property_details/:id" element={<PropertyDetails/>}/>
         <Route path="/profile" element={<Profile/>}/>
         <Route path="/myproperty" element={<MyProperty/>}/>
       </Routes>

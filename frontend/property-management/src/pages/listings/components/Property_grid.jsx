@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import styles from "./Property_grid.module.css";
-import villaImg from "./propimages/villa.jpg"; // Fallback demo image
+import villaImg from "../../landingPage/images/villa.webp"; // Fallback demo image
 import Category from "./Category"; // Import the Category component
 import { Link } from "react-router-dom"; // Import Link for navigation
 
 function PropGrid() {
-  const [properties, setProperties] = useState([]);
   const [filteredProperties, setFilteredProperties] = useState([]);
   const [categories, setCategories] = useState({
     all: [],
@@ -15,12 +14,13 @@ function PropGrid() {
     residential: [],
   });
   const [loading, setLoading] = useState(true);
-  const [searchQuery, setSearchQuery] = useState(""); // State for search query
+  const [error, setError] = useState("");
 
   useEffect(() => {
     const fetchProperties = async () => {
       try {
         const response = await axios.get("https://prop-mern-backend.onrender.com/api/property/all_properties", {
+          timeout: 15000,
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
           },
@@ -36,12 +36,12 @@ function PropGrid() {
           residential: allProperties.filter((property) => property.category === "residential"),
         };
 
-        setProperties(allProperties);
         setCategories(categorized);
         setFilteredProperties(allProperties); // Default to show all properties
         setLoading(false);
       } catch (error) {
         console.error("Error fetching properties:", error.response?.data || error.message);
+        setError("Properties could not be loaded. Please try again in a moment.");
         setLoading(false);
       }
     };
@@ -53,26 +53,18 @@ function PropGrid() {
     setFilteredProperties(categories[category]);
   };
 
-  const handleSearch = async (query) => {
-    setSearchQuery(query); // Update the search query state
-    if (query.trim() === "") {
-      setFilteredProperties(categories.all); // Reset to all properties if search is empty
-      return;
-    }
-
-    try {
-      const response = await axios.get(`https://prop-mern-backend.onrender.com/api/property/all_properties?title=${query}`, {
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem("token")}`,
-        },
-      });
-      setFilteredProperties(response.data.properties); // Update filtered properties based on search
-    } catch (error) {
-      console.error("Error fetching properties:", error.response?.data || error.message);
-    }
+  const handleSearch = (query) => {
+    const normalizedQuery = query.trim().toLowerCase();
+    const matchingProperties = categories.all.filter((property) =>
+      [property.title, property.location, property.category]
+        .filter(Boolean)
+        .some((value) => value.toLowerCase().includes(normalizedQuery))
+    );
+    setFilteredProperties(normalizedQuery ? matchingProperties : categories.all);
   };
 
   if (loading) return <p>Loading properties...</p>;
+  if (error) return <p role="alert">{error}</p>;
 
   return (
     <div>
@@ -85,23 +77,33 @@ function PropGrid() {
           <Card
             key={property._id}
             title={property.title}
-            description={property.description}
             category={property.category}
             price={property.price}
             location={property.location}
             image={property.images?.[0] || villaImg} // Use the first image or fallback to demo image
+            propertyId={property._id}
           />
         ))}
+        {!filteredProperties.length && <p>No properties match your search.</p>}
       </div>
     </div>
   );
 }
 
-function Card({ title, description, category, price, location, image }) {
+function Card({ title, category, price, location, image, propertyId }) {
   return (
-    <Link to={`/property_details/${title}`} className={styles.link}>
+    <Link to={`/property_details/${propertyId}`} className={styles.link}>
       <div className={styles.gridItem}>
-        <img src={image} alt={title} className={styles.propertyImage} />
+        <img
+          src={image}
+          alt={title || "Property"}
+          className={styles.propertyImage}
+          loading="lazy"
+          onError={(event) => {
+            event.currentTarget.onerror = null;
+            event.currentTarget.src = villaImg;
+          }}
+        />
         <div className={styles.content}>
           <div className={styles.gridItemTitle}>{title}</div>
           {/* <div className={styles.gridItemDescription}>{description}</div> */}

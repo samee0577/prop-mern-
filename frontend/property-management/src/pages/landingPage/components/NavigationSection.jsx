@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styles from "./NavigationSection.module.css";
-import resident from "../images/resident.jpg";
-import villa from "../images/villa.jpg";
-import commercial from "../images/commercial.jpg";
+import resident from "../images/resident.avif";
+import villa from "../images/villa.webp";
+import commercial from "../images/commercial.avif";
 
 
 function NavigationSection() {
