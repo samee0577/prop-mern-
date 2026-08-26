@@ -1,7 +1,10 @@
-@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Valley+Sans:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css");
 
 :root {
-  font-family: "DM Sans", sans-serif;
+  font-family: "Valley Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
 }
 
 body {
@@ -14,4 +17,8 @@ input,
 textarea,
 select {
   font: inherit;
+}
+
+* {
+  box-sizing: border-box;
 }

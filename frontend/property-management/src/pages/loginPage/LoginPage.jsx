@@ -5,6 +5,7 @@ import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 import styles from "../signUpPage/SignUpForm.module.css";
 import BackArrow from "../../components/BackArrow";
+import { API_BASE_URL } from "../../config/api";
 
 function LoginPage() {
   const navigate = useNavigate();
@@ -70,7 +71,7 @@ function LoginPage() {
     setIsError(false);
 
     try {
-      const response = await axios.post(`https://prop-mern-backend.onrender.com/api/auth/login`, {
+      const response = await axios.post(`${API_BASE_URL}/api/auth/login`, {
         email,
         password,
       });

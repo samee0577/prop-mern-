@@ -11,6 +11,21 @@
   padding: 20px;
 }
 
+.emptyState {
+  grid-column: 1 / -1;
+  padding: 48px 20px;
+  color: #6d6258;
+  text-align: center;
+  border: 1px dashed #c4a484;
+  border-radius: 10px;
+}
+
+.emptyState i {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 34px;
+}
+
 .gridItem {
   background-color: #ffffff;
   border-radius: 12px;
@@ -161,4 +176,22 @@
 
 .editButton:hover {
   background-color: #0056b3;
+}
+
+@media (max-width: 640px) {
+  .myAddedPropertyContainer h2 {
+    padding-left: 15px;
+    font-size: 26px;
+  }
+
+  .propertyGrid {
+    grid-template-columns: 1fr;
+    padding: 15px;
+  }
+
+  .modalContent {
+    width: calc(100% - 30px);
+    max-height: 90vh;
+    overflow-y: auto;
+  }
 }

@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Style from "./myAddedProperty.module.css"; // Import the CSS module for styling
+import { API_BASE_URL } from "../../../config/api";
+import villaImg from "../../landingPage/images/villa.webp";
 
 function MyAddedProperty() {
   const [properties, setProperties] = useState([]);
@@ -19,7 +21,7 @@ function MyAddedProperty() {
     const fetchMyProperties = async () => {
       try {
         const token = localStorage.getItem("token");
-        const response = await axios.get("https://prop-mern-backend.onrender.com/api/property/all_properties", {
+        const response = await axios.get(`${API_BASE_URL}/api/property/all_properties`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -51,7 +53,7 @@ function MyAddedProperty() {
 
     try {
       const token = localStorage.getItem("token");
-      await axios.delete(`https://prop-mern-backend.onrender.com/api/property/delete/${propertyId}`, {
+      await axios.delete(`${API_BASE_URL}/api/property/delete/${propertyId}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -86,7 +88,7 @@ function MyAddedProperty() {
     try {
       const token = localStorage.getItem("token");
       await axios.put(
-        `https://prop-mern-backend.onrender.com/api/property/update/${editProperty._id}`,
+        `${API_BASE_URL}/api/property/update/${editProperty._id}`,
         editForm,
         {
           headers: {
@@ -117,13 +119,24 @@ function MyAddedProperty() {
     <div className={Style.myAddedPropertyContainer}>
       <h2>My Properties</h2>
       <div className={Style.propertyGrid}>
+        {!properties.length && (
+          <div className={Style.emptyState}>
+            <i className="ti ti-building-off" aria-hidden="true" />
+            <p>You have not added any properties yet.</p>
+          </div>
+        )}
         {properties.map((property) => (
           <div key={property._id} className={Style.gridItem}>
             <div className={Style.propertyImageContainer}>
               <img
-                src={property.images?.[0] || "https://via.placeholder.com/300"}
-                alt={property.title}
+                src={property.images?.[0] || villaImg}
+                alt={property.title || "Property"}
                 className={Style.propertyImage}
+                loading="lazy"
+                onError={(event) => {
+                  event.currentTarget.onerror = null;
+                  event.currentTarget.src = villaImg;
+                }}
               />
             </div>
             <div className={Style.content}>
@@ -135,12 +148,14 @@ function MyAddedProperty() {
                 className={Style.editButton}
                 onClick={() => handleEdit(property)}
               >
+                <i className="ti ti-pencil" aria-hidden="true" /> {" "}
                 Edit
               </button>
               <button
                 className={Style.deleteButton}
                 onClick={() => handleDelete(property._id)}
               >
+                <i className="ti ti-trash" aria-hidden="true" /> {" "}
                 Delete
               </button>
             </div>

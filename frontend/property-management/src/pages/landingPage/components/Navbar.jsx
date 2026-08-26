@@ -11,7 +11,7 @@ function Navbar() {
       <div className={styles.navActions}>
         {localStorage.getItem("token") ? (
           <div className={styles.profileContainer}>
-            <Link to="/profile">
+            <Link to="/profile" aria-label="Open profile" title="Open profile">
               <img
                 src={Profile_b}
                 alt="profile"

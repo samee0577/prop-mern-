@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import styles from "./profileContent.module.css";
 import profileImage from "../../landingPage/images/profile_black.png";
 import axios from "axios";
+import { API_BASE_URL } from "../../../config/api";
 
 const ProfileContent = () => {
   const [user, setUser] = useState(null);
@@ -17,7 +18,7 @@ const ProfileContent = () => {
     const fetchUser = async () => {
       try {
         const token = localStorage.getItem("token");
-        const res = await axios.get("https://prop-mern-backend.onrender.com/api/user/profile", {
+        const res = await axios.get(`${API_BASE_URL}/api/user/profile`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -49,7 +50,7 @@ const ProfileContent = () => {
     try {
       const token = localStorage.getItem("token");
       const response = await axios.put(
-        "https://prop-mern-backend.onrender.com/api/user/profile",
+        `${API_BASE_URL}/api/user/profile`,
         editForm,
         {
           headers: {
@@ -73,6 +74,7 @@ const ProfileContent = () => {
   return (
     <div>
       <button className={styles.editButton} onClick={handleEditClick}>
+        <i className="ti ti-pencil" aria-hidden="true" /> {" "}
         Edit Profile
       </button>
 
@@ -95,6 +97,7 @@ const ProfileContent = () => {
             }}
             className={styles.editButton}
           >
+            <i className="ti ti-logout" aria-hidden="true" /> {" "}
             Logout
           </button>
         </div>

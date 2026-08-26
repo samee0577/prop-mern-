@@ -4,7 +4,7 @@
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    padding: 20px 30px;
+    padding: 20px 30px 10px;
     background-color: #F0EBE3;
 }
 
@@ -19,9 +19,9 @@
     border: 1px solid #a9a9a96e;
     border-radius: 4px;
     outline: none;
-    width: 250px;
+    width: min(250px, 100%);
     padding: 10px;
-    font-family: Inter, sans-serif;
+    font-family: "Valley Sans", "DM Sans", sans-serif;
     font-size: 14px;
   }
 
@@ -38,10 +38,17 @@
     border-radius: 24px;
     color: #000;
     background-color: #e7dbbc;
-    font-family: Inter, sans-serif;
+    font-family: "Valley Sans", "DM Sans", sans-serif;
     font-size: 15px;
     font-weight: 500;
     border: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+  }
+
+  .categoryItem:hover {
+    transform: translateY(-1px);
+    background-color: #f4f4f4e2;
   }
 
   .activeCat{
@@ -50,4 +57,26 @@
     align-items: center;
     background-color: #f4f4f4e2;
     border : 1px solid rgba(113, 113, 113, 0.804);
+  }
+
+  @media (max-width: 700px) {
+    .categoryContainer {
+      align-items: stretch;
+      flex-direction: column;
+      gap: 12px;
+      padding: 15px;
+    }
+
+    .searchInput {
+      width: 100%;
+    }
+
+    .authButtons {
+      overflow-x: auto;
+    }
+
+    .categoryItem {
+      flex: 1 0 auto;
+      padding: 8px 12px;
+    }
   }

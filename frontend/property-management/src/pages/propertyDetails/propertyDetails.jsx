@@ -3,8 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 import villaImg from "../landingPage/images/villa.webp";
 import styles from "./propertyDetails.module.css";
-
-const API_URL = "https://prop-mern-backend.onrender.com/api/property";
+import { API_BASE_URL } from "../../config/api";
 
 function PropertyDetails() {
   const { id } = useParams();
@@ -17,7 +16,7 @@ function PropertyDetails() {
 
     const fetchProperty = async () => {
       try {
-        const response = await axios.get(`${API_URL}/propertybyid/${id}`);
+        const response = await axios.get(`${API_BASE_URL}/api/property/propertybyid/${id}`);
         if (active) setProperty(response.data.property);
       } catch (requestError) {
         console.error("Error fetching property:", requestError.response?.data || requestError.message);

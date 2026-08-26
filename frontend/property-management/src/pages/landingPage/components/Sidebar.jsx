@@ -14,25 +14,25 @@ function Sidebar() {
       <div className={styles.mainNavLinks}>
         <Link to="/">
           <div className={styles.navItem}>
-            <div className={styles.navIcon} />
+            <i className={`ti ti-home ${styles.navIcon}`} aria-hidden="true" />
             <div className={styles.navText}>home</div>
           </div>
         </Link>
         <Link to="/myproperty">
           <div className={styles.navItem}>
-            <div className={styles.navIcon} />
+            <i className={`ti ti-building ${styles.navIcon}`} aria-hidden="true" />
             <div className={styles.navText}>My properties</div>
           </div>
         </Link>
         <Link to="/listings">
           <div className={styles.navItem}>
-            <div className={styles.navIcon} />
+            <i className={`ti ti-building-community ${styles.navIcon}`} aria-hidden="true" />
             <div className={styles.navText}>All properties</div>
           </div>
         </Link>
         <Link to="/settings">
           <div className={styles.navItem}>
-            <div className={styles.navIcon} />
+            <i className={`ti ti-settings ${styles.navIcon}`} aria-hidden="true" />
             <div className={styles.navText}>settings</div>
           </div>
         </Link>
@@ -44,18 +44,18 @@ function Sidebar() {
             window.location.href = '/login';
           }
         }}>
-          <div className={styles.navIcon} />
+          <i className={`ti ti-logout ${styles.navIcon}`} aria-hidden="true" />
           <div className={styles.navText}>Logout</div>
         </div>
         <Link to="/help-support">
           <div className={styles.navItem}>
-            <div className={styles.navIcon} />
+            <i className={`ti ti-help-circle ${styles.navIcon}`} aria-hidden="true" />
             <div className={styles.navText}>help &amp; support</div>
           </div>
         </Link>
         <Link to="/payments">
           <div className={styles.navItem}>
-            <div className={styles.navIcon} />
+            <i className={`ti ti-credit-card ${styles.navIcon}`} aria-hidden="true" />
             <div className={styles.navText}>payments</div>
           </div>
         </Link>

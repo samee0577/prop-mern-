@@ -12,7 +12,7 @@
   color: #000;
   text-align: center;
   text-transform: capitalize;
-  font-family: Inria Sans, sans-serif;
+  font-family: "Valley Sans", "DM Sans", sans-serif;
   font-size: 32px;
   width: 100%; /* Ensure title takes full width */
 }
@@ -63,7 +63,7 @@
   color: #000;
   text-transform: capitalize;
   padding: 14px;
-  font-family: Inria Sans, sans-serif;
+  font-family: "Valley Sans", "DM Sans", sans-serif;
   font-size: 20px;
 }
 

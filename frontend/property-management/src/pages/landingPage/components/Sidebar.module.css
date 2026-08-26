@@ -41,7 +41,7 @@
   .sidebarTitle {
     color: #000;
     text-transform: uppercase;
-    font-family: Inria Sans, sans-serif;
+    font-family: "Valley Sans", "DM Sans", sans-serif;
     font-size: 24px; /* Reduced font size */
     font-weight: 400; /* Reduced boldness */
   }
@@ -64,18 +64,25 @@
     align-items: center;
     gap: 6px; /* Reduced gap */
     display: flex;
+    cursor: pointer;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+  }
+
+  .navItem:hover {
+    transform: translateX(3px);
+    opacity: 0.72;
   }
   
   .navIcon {
-    background-color: #fff;
-    border-radius: 6px; /* Slightly reduced */
-    width: 24px; /* Reduced size */
-    height: 24px; /* Reduced size */
+    color: #fff;
+    width: 24px;
+    font-size: 21px;
+    text-align: center;
   }
   
   .navText {
     color: #000;
-    font-family: Inria Sans, sans-serif;
+    font-family: "Valley Sans", "DM Sans", sans-serif;
     font-size: 18px; /* Reduced font size */
     font-weight: 300;
   }
@@ -118,14 +125,28 @@
   
   .userName {
     color: #000;
-    font-family: Inria Sans, sans-serif;
+    font-family: "Valley Sans", "DM Sans", sans-serif;
     font-size: 18px; /* Reduced font size */
     font-weight: 300;
   }
   
   .userEmail {
     color: #000;
-    font-family: Inria Sans, sans-serif;
+    font-family: "Valley Sans", "DM Sans", sans-serif;
     font-size: 14px; /* Reduced font size */
     font-weight: 300;
+  }
+
+  @media (max-width: 640px) {
+    .sideContainer {
+      height: auto;
+    }
+
+    .bottomNavLinks {
+      display: none;
+    }
+
+    .userProfile {
+      display: none;
+    }
   }

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import styles from "./addProp.module.css";
+import { API_BASE_URL } from "../../../config/api";
 
 function AddProp() {
   const [formData, setFormData] = useState({
@@ -27,7 +28,7 @@ function AddProp() {
     try {
       const token = localStorage.getItem("token"); // Get the token from localStorage
       const response = await axios.post(
-        "https://prop-mern-backend.onrender.com/api/property/new_property",
+        `${API_BASE_URL}/api/property/new_property`,
         { ...formData, images: formData.images.split(",") }, // Convert images to an array
         {
           headers: {
@@ -133,7 +134,7 @@ function AddProp() {
           <option value="sold">Sold</option>
         </select>
 
-        <button type="submit">Add Property</button>
+        <button type="submit"><i className="ti ti-plus" aria-hidden="true" /> Add Property</button>
       </form>
 
       {success && (

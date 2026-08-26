@@ -4,6 +4,7 @@ import { useState , useEffect } from "react";
 import {useNavigate} from "react-router-dom";
 import axios from "axios";
 import styles from "../pages/signUpPage/SignUpForm.module.css";
+import { API_BASE_URL } from "../config/api";
 
 function FormSection() {
 
@@ -53,7 +54,7 @@ function FormSection() {
   setIsError(false);
 
   try {
-    const response = await axios.post(`http://localhost:3000/api/auth/signup`, {
+    const response = await axios.post(`${API_BASE_URL}/api/auth/signup`, {
       name,
       email,
       password
