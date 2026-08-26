@@ -10,14 +10,17 @@ connectDb()//connecting to db function
 
 const app =express();
 app.use(express.json())
+const configuredFrontendUrls = [
+  process.env.FRONTEND_URL,
+  ...(process.env.FRONTEND_URLS || "").split(","),
+  "https://prop-mern-frontend.onrender.com",
+].map((url) => url.trim()).filter(Boolean);
+
 const corsOptions = {
     origin: (origin, callback) => {
-      const allowedOrigins = [
-        process.env.FRONTEND_URL,
-      ].filter(Boolean);
       const isLocalDevelopmentOrigin = /^http:\/\/(localhost|127\.0\.0\.1):\d+$/.test(origin || "");
 
-      if (!origin || allowedOrigins.includes(origin) || isLocalDevelopmentOrigin) {
+      if (!origin || configuredFrontendUrls.includes(origin) || isLocalDevelopmentOrigin) {
         callback(null, true);
       } else {
         callback(new Error("Origin is not allowed by CORS"));
