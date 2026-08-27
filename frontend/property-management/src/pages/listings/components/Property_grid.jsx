@@ -4,7 +4,7 @@ import styles from "./Property_grid.module.css";
 import villaImg from "../../landingPage/images/villa.webp"; // Fallback demo image
 import Category from "./Category"; // Import the Category component
 import { Link } from "react-router-dom"; // Import Link for navigation
-import { API_BASE_URL } from "../../../config/api";
+import { BACKEND_URL } from "../../../config/api";
 
 function PropGrid() {
   const [filteredProperties, setFilteredProperties] = useState([]);
@@ -20,7 +20,7 @@ function PropGrid() {
   useEffect(() => {
     const fetchProperties = async () => {
       try {
-        const response = await axios.get(`${API_BASE_URL}/api/property/all_properties`, {
+        const response = await axios.get(`${BACKEND_URL}/api/property/all_properties`, {
           timeout: 15000,
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,

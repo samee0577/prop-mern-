@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Style from "./myAddedProperty.module.css"; // Import the CSS module for styling
-import { API_BASE_URL } from "../../../config/api";
+import { BACKEND_URL } from "../../../config/api";
 import villaImg from "../../landingPage/images/villa.webp";
 
 function MyAddedProperty() {
@@ -21,7 +21,7 @@ function MyAddedProperty() {
     const fetchMyProperties = async () => {
       try {
         const token = localStorage.getItem("token");
-        const response = await axios.get(`${API_BASE_URL}/api/property/all_properties`, {
+        const response = await axios.get(`${BACKEND_URL}/api/property/all_properties`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -53,7 +53,7 @@ function MyAddedProperty() {
 
     try {
       const token = localStorage.getItem("token");
-      await axios.delete(`${API_BASE_URL}/api/property/delete/${propertyId}`, {
+      await axios.delete(`${BACKEND_URL}/api/property/delete/${propertyId}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -88,7 +88,7 @@ function MyAddedProperty() {
     try {
       const token = localStorage.getItem("token");
       await axios.put(
-        `${API_BASE_URL}/api/property/update/${editProperty._id}`,
+        `${BACKEND_URL}/api/property/update/${editProperty._id}`,
         editForm,
         {
           headers: {
