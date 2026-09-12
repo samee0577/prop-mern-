@@ -3,7 +3,11 @@ import styles from "../pages/signUpPage/SignUpForm.module.css";
 
 function BackArrow() {
   return (
-    <button className={styles.backArrowButton}>
+    <button
+      type="button"
+      aria-label="Go back"
+      className={styles.backArrowButton}
+    >
       <svg
         width="33"
         height="61"
@@ -11,6 +15,7 @@ function BackArrow() {
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
         className={styles.backArrow}
+        aria-hidden="true"
       >
         <path
           d="M30.4697 59L1.9394 30.4697"
