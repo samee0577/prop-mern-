@@ -24,32 +24,41 @@ function Category({ onCategoryChange, onSearch }) {
         <input
           type="text"
           placeholder="Search properties"
+          aria-label="Search properties"
           className={styles.searchInput}
           onChange={handleSearchInput} // Handle search input
         />
       </div>
-      <div className={styles.authButtons}>
+      <div
+        className={styles.authButtons}
+        role="group"
+        aria-label="Filter properties by category"
+      >
         <button
           className={getButtonClass("residential")}
           onClick={() => handleCategoryClick("residential")}
+          aria-pressed={activeCategory === "residential"}
         >
           Residential
         </button>
         <button
           className={getButtonClass("commercial")}
           onClick={() => handleCategoryClick("commercial")}
+          aria-pressed={activeCategory === "commercial"}
         >
           Commercial
         </button>
         <button
           className={getButtonClass("villa")}
           onClick={() => handleCategoryClick("villa")}
+          aria-pressed={activeCategory === "villa"}
         >
           Villa
         </button>
         <button
           className={getButtonClass("all")}
           onClick={() => handleCategoryClick("all")}
+          aria-pressed={activeCategory === "all"}
         >
           All
         </button>
