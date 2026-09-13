@@ -1,14 +1,24 @@
-// filepath: c:\Users\Shahid\Desktop\prop(mern)\backend\database\connection\dbConnection.js
 import mongoose from "mongoose";
 import dotenv from "dotenv";
-dotenv.config({ path: "../../.env" }); // Correct relative path to the .env file
+
+dotenv.config();
 
 const connectDb = async () => {
+  if (mongoose.connection.readyState >= 1) {
+    return;
+  }
+
+  const mongoUrl = process.env.mongoUrl || process.env.MONGO_URL || process.env.MONGODB_URI;
+  if (!mongoUrl) {
+    console.error("MongoDB connection error: mongoUrl / MONGO_URL / MONGODB_URI environment variable is not defined.");
+    return;
+  }
+
   try {
-    await mongoose.connect(process.env.mongoUrl);
+    await mongoose.connect(mongoUrl);
     console.log("Connected to MongoDB");
   } catch (error) {
-    console.log("Error connecting to DB:", error.message);
+    console.error("Error connecting to DB:", error.message);
   }
 };
 
